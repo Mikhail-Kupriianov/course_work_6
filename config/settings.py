@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'main',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cw_6',
+        'USER': 'postgres',
+        'PASSWORD': '57580427',
     }
 }
 
@@ -121,3 +125,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Отвечает за формирование адреса доступа к статике
+# STATIC_URL = 'static/'
+# Отвечает за место на диске, откуда необходимо подгружать статику
+STATICFILES_DIRS = (
+    BASE_DIR / 'static',
+)
