@@ -1,0 +1,102 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ru" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <title>Управление рассылками</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    {#    <link href="{% static sticky-footer-navbar.css%}" rel="stylesheet">#}
+    {#</head>#}
+<body class="d-flex flex-column h-100">
+
+<header>
+    <div class="container">
+        <div class="row">
+            <!-- Fixed navbar -->
+            {% include 'main/includes/fixed_navbar.html' %}
+        </div>
+    </div>
+
+</header>
+</head>
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <h1 class="mt-5">{{ Title }}</h1>
+            {#        <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A#}
+            {#            fixed navbar has been added with <code class="small">padding-top: 60px;</code> on the <code class="small">main#}
+            {#                &gt; .container</code>.</p>#}
+            {#        <p>Back to <a href="../examples/sticky-footer/">the default sticky footer</a> minus the navbar.</p>#}
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</main>
+<footer class="footer mt-auto py-1 bg-light">
+    <div class="container">
+        <p class="float-md-end">
+            <a href="#">Back to top</a>
+        </p>
+        <p>&copy; 2023 - {% now 'Y' %}</p>
+    </div>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+{#<script src="{% static 'js/popper.min.js' %}"></script>#}
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{#<script src="{% static 'js/holder.min.js' %}"></script>#}
+
+
+</body>
+</html>
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="utf-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#    <title>Управление рассылками</title>#}
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">#}
+{##}
+{#</head>#}
+{#<body>#}
+{#<div class="row">#}
+{#    {% block content %}#}
+{#    {% endblock %}#}
+{#</div>#}
+{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>#}
+{#</body>#}
+{#</html>#}
