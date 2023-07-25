@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load extra_filter %}
+{% block content %}
+    <div class="row">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="col-md">
+                    <br>
+                    <p>Блог {{ object.blog_title }}</p>
+                    <p>Количество просмотров {{ object.blog_views_count }}</p>
+                    <img class="card-img">
+                    {% if object.blog_preview %}
+                        <img src="/media/{{ object.blog_preview }}" class="img-fluid" alt="Responsive image">
+                    {% endif %}
+                    <p>{{ object.blog_content }}</p>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="card-footer">
+        <a href="{% url 'blog:blogs' %}" class="btn btn-sm btn-outline-secondary">Back</a>
+    </div>
+    {{ object.inc }}
+{% endblock %}
