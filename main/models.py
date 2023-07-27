@@ -18,7 +18,7 @@ class Distribution(models.Model):
     distribution_name = models.CharField(max_length=255,
                                          blank=False,
                                          null=False,
-                                         default='Рассылка ' + str(datetime.datetime.now()),
+                                         default='Рассылка',
                                          verbose_name='Рассылка')
 
     # message = models.ForeignKey('Messages', on_delete=models.CASCADE, verbose_name='Письмо для рассылки', **NULLABLE)

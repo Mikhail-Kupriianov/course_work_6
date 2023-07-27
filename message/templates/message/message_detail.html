@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load extra_filter %}
+{% block content %}
+    <div class="row">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="col-md">
+                    <br>
+                    Тема сообщения
+                    <div class="card-body">
+                        <p>{{ object.message_title }}</p>
+                    </div>
+                    Содержание
+                    <div class="card-body">
+                        <p>{{ object.message_content }}</p>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="card-footer">
+        <a href="{% url 'message:messages' %}" class="btn btn-sm btn-outline-secondary">Back</a>
+    </div>
+{% endblock %}

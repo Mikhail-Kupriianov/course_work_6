@@ -44,6 +44,9 @@ class RegisterView(CreateView):
 
 class ProfileView(LoginRequiredMixin, UpdateView):
     model = User
+    extra_context = {
+        'title': 'Профиль'
+    }
     form_class = UserProfileForm
     success_url = reverse_lazy('users:profile')
 

@@ -21,13 +21,13 @@
                         <a class="nav-link active" aria-current="page" href="#">Клиенты</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Сообщения</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'message:messages' %}">Сообщения</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Рассылки</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'blog:blogs' %}">Блог</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'blog:blogs' %}">Блоги</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
