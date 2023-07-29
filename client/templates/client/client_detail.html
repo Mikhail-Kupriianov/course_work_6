@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+{% load extra_filter %}
+{% block content %}
+    <div class="row">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="col-md">
+                    <br>
+                    <table class="table table-striped">
+                        <thead>
+                        Клиент
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>Фамилия</th>
+                            <td>{{ object.client_second_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Имя</th>
+                            <td>{{ object.client_first_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Отчество</th>
+                            <td>{{ object.client_surname }}</td>
+                        </tr>
+                        <tr>
+                            <th>Почта</th>
+                            <td>{{ object.client_email }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <br>
+                    Комментарии
+                    <div class="card-body">
+                        <p>{{ object.client_comments }}</p>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="card-footer">
+    <div class="btn-group-sm">
+        <a href="{% url 'client:client' %}" class="btn btn-sm btn-outline-secondary">Back</a>
+        <a href="{% url 'client:client_update' object.pk %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+    </div>
+    </div>
+{% endblock %}

@@ -9,13 +9,6 @@ from users.models import User
 from users.utils import send_email_for_verify
 
 
-# class StyleFormMixin:
-#     def __init__(self, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         for field_name, field in self.fields.items():
-#             field.widget.attrs['class'] = 'form-control'
-
-
 class AuthenticationForm(Auth):
     def clean(self):
         username = self.cleaned_data.get('username')

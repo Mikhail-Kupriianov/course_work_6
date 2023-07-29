@@ -19,7 +19,3 @@ class Message(models.Model):
         verbose_name = 'сообщение'
         verbose_name_plural = 'сообщения'
         ordering = ('-message_created_at',)
-
-
-if __name__ == '__main__':
-    print('yes')
