@@ -1,7 +1,11 @@
 import datetime
 
 from django.db import models
-from django.template.defaulttags import now
+from django.utils.timezone import now
+
+from client.models import Client
+from message.models import Message
+from users.models import User
 
 
 class Distribution(models.Model):
@@ -30,7 +34,7 @@ class Distribution(models.Model):
     distribution_end = models.DateTimeField(default=now,
                                             verbose_name='Дата окончания рассылки')
 
-    distribution_is_active = models.BooleanField(default=True,
+    distribution_is_active = models.BooleanField(default=False,
                                                  verbose_name='Активная')
 
     periodicity = models.CharField(
@@ -46,6 +50,12 @@ class Distribution(models.Model):
         verbose_name='Статус рассылки'
     )
 
+    distribution_owner = models.ForeignKey(
+        User, on_delete=models.SET_NULL, verbose_name='пользователь', blank=True, null=True)
+
+    distribution_message = models.ForeignKey(
+        Message, on_delete=models.SET_NULL, verbose_name='сообщение', blank=False, null=True)
+
     class Meta:
         verbose_name = 'Рассылка'
         verbose_name_plural = 'Рассылки'
@@ -54,6 +64,6 @@ class Distribution(models.Model):
         return f"{self.distribution_name}"
 
 
-if __name__ == '__main__':
-    default_name = 'Рассылка ' + str(datetime.datetime.now())
-    print(default_name)
+class CDCross(models.Model):
+    cd_cross_client = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name='клиент')
+    cd_cross_distribution = models.ForeignKey(Distribution, on_delete=models.CASCADE, verbose_name='рассылка')

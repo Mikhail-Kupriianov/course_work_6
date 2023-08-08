@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+{% load extra_filter %}
+{% block content %}
+    <div class="col-6">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="col-md">
+                    <br>
+                    Рассылка
+                    <div class="card-body">
+                        <p>{{ object.distribution_name }}</p>
+                        <p>{{ object.distribution_start }}</p>
+                        <p>{{ object.distribution_end }}</p>
+                        <p>{{ object.distribution_is_active }}</p>
+                        <p>{{ object.distribution_message }}</p>
+                        <p>{{ object.periodicity }}</p>
+                        <p>{{ object.status }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="col-md">
+                    <br>
+                    Рассылка
+                    <div class="card-body">
+                        {{ formset.management_form }}
+                        {% for form in formset.forms %}
+                            {{ form.as_p }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="card-footer">
+        <a href="{% url 'main:distributions' %}" class="btn btn-sm btn-outline-secondary">Список рассылок</a>
+        <a href="{% url 'main:distribution_update' object.pk %}"
+           class="btn btn-sm btn-outline-secondary m-1">{{ _('Change') }}</a>
+    </div>
+{% endblock %}

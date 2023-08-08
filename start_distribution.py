@@ -1,2 +1,4 @@
+import time
+
 print('Запуск рассылок')
-input('нажмите "Ввод"')
+time.sleep(1)

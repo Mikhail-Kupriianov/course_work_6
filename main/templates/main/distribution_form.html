@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+{#{% load extra_filter %}#}
+{% block content %}
+    <div class="col-12">
+        <form class="row" method="post" enctype="multipart/form-data">
+            <div class="col-6">
+                <div class="card mb-5">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            {% if object %}Изменить рассылку{% else %}Создать рассылку{% endif %}
+                        </h3>
+                        <div class="card-body">
+
+                            {% csrf_token %}
+                            {{ form.as_p }}
+
+                        </div>
+                        <div class="card-footer">
+                            <input type="submit" class="btn btn-success"
+                                   value="{% if object %}Update{% else %}Save{% endif %}">
+                            <a href="{% url 'main:distributions' %}" class="btn btn-primary">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card mb-5">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            Клиенты
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        {{ formset.management_form }}
+                        {% for form in formset.forms %}
+                        {{ form.as_p }}
+                    {% if not forloop.last %}
+                        <hr>
+                        <hr>
+                    {% endif %}
+                {% endfor %}
+                    </div>
+{#                    <div class="card-footer"></div>#}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

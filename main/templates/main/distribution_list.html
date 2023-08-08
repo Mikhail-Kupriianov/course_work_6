@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% load extra_filter %}
+{% block content %}
+    <div class="card mb-xxl-5">
+        <div class="row">
+            <div class="col-6">
+                <a href="{% url 'main:distribution_create' %}"
+                   class="btn btn-sm btn-outline-secondary m-1">{{ _('Create') }}</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                {% for object in object_list %}
+                    <div class="col-md-3">
+                        <div class="card mb-4 box-shadow m-1">
+                            <div class="card-body">
+                                <p class="card-text">{{ object|capfirst|truncatechars:100 }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group-vertical">
+                                        <a href="{% url 'main:distribution_item' object.pk %}"
+                                           class="btn btn-sm btn-outline-secondary m-1">{{ _('View') }}</a>
+                                        <a href="{% url 'main:distribution_update' object.pk %}"
+                                           class="btn btn-sm btn-outline-secondary m-1">{{ _('Change') }}</a>
+                                        <a href="{% url 'main:distribution_delete' object.pk %}"
+                                           class="btn btn-sm btn-outline-secondary m-1">{{ _('Delete') }}</a>
+                                        {#                            </button>#}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
